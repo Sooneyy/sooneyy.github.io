@@ -11,6 +11,7 @@ const data = {
         {name: "VueJS", left: -4}, 
         {name: "MySQL", left: -7}, 
         {name: "React", left: -4}, 
-        {name: "WordPress", left: -20}
+        {name: "WordPress", left: -20},
+        {name: "jQuery", left: -6}
     ]
 }

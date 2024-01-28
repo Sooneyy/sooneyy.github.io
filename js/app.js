@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 el2.setAttribute("aria-hidden", "false");
                 el.appendChild(el2);
     
-                img.src = `./assets/${item.name}.png`;
+                img.src = `./assets/${item.name.toLowerCase()}.png`;
                 img.alt = item.name;
                 el.appendChild(img);
 

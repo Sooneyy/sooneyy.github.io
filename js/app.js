@@ -12,26 +12,31 @@ window.addEventListener("DOMContentLoaded", () => {
                 const el = document.createElement("div");
                 const el2 = document.createElement("div");
                 const img = document.createElement("img");
+
+                const tooltip = document.querySelector(".tooltip");
     
                 el.classList.add("skills-item");
                 document.querySelector(".skills-items").appendChild(el);
     
-                el2.textContent = item.name;
-                el2.classList.add("tooltip");
-                el2.style.left = item.left + "px";
-                el2.setAttribute("aria-hidden", "false");
-                el.appendChild(el2);
-    
-                img.src = `./assets/${item.name.toLowerCase()}.png`;
-                img.alt = item.name;
+                img.src = `assets/${item}.png`;
+                img.alt = item;
                 el.appendChild(img);
 
-                img.onmouseover = function(){
-                    el2.setAttribute("aria-hidden", "true");
+                img.onmouseover = function(e){
+                    document.querySelector(".tooltip").textContent = item;
+
+                    tooltip.setAttribute("aria-hidden", "true");
+
+                    const rect = el.getBoundingClientRect();
+                    const x = rect.left - ((tooltip.offsetWidth - rect.width) / 2);
+                    const y = rect.top - rect.height + 5;
+
+                    tooltip.style.left = x + "px";
+                    tooltip.style.top = y + "px";
                 }
 
                 img.onmouseleave = function(){
-                    el2.setAttribute("aria-hidden", "false");
+                    tooltip.setAttribute("aria-hidden", "false");
                 }
             }
         })
